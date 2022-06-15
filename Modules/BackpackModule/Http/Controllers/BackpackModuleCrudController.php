@@ -5,6 +5,7 @@ namespace Modules\BackpackModule\Http\Controllers;
 use Nwidart\Modules\Facades\Module;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Modules\BackpackModule\Http\Requests\BackpackModuleRequest;
+use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use File;
 /**
  * Class BackpackModuleCrudController
@@ -22,53 +23,53 @@ class BackpackModuleCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     *
+     * 
      * @return void
      */
     public function setup()
     {
-        $this->crud->setModel(\Modules\BackpackModule\Entities\BackpackModule::class);
-        $this->crud->setRoute('/backpack-module');
-        $this->crud->setEntityNameStrings('backpack module', 'backpack modules');
+        CRUD::setModel(\Modules\BackpackModule\Entities\BackpackModule::class);
+        CRUD::setRoute('/backpack-module');
+        CRUD::setEntityNameStrings('backpack module', 'backpack modules');
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     *
+     * 
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-
-        $this->crud->addColumn(['name' => 'model', 'type' => 'text']);
-        $this->crud->addColumn(['name' => 'module', 'type' => 'text']);
+        
+        CRUD::addColumn(['name' => 'model', 'type' => 'text']);
+        CRUD::addColumn(['name' => 'module', 'type' => 'text']);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
-         * - $this->crud->column('price')->type('number');
-         * - $this->crud->addColumn(['name' => 'price', 'type' => 'number']);
+         * - CRUD::column('price')->type('number');
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     *
+     * 
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(BackpackModuleRequest::class);
-
+        CRUD::setValidation(BackpackModuleRequest::class);
+        
         $path = app_path() . "/Models";
         $list_file = $this->getModels($path);
-
+        
         $list_module = [];
         foreach(Module::all() as $key => $value) {
             $list_module[$key] = $key;
-        }
-
-        $this->crud->addField([   // select2_from_array
+        } 
+        
+        CRUD::addField([   // select2_from_array
             'name'        => 'model',
             'label'       => "Model",
             'type'        => 'select2_from_array',
@@ -77,7 +78,7 @@ class BackpackModuleCrudController extends CrudController
             // 'default'     => 'one',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
-        $this->crud->addField([   // select2_from_array
+        CRUD::addField([   // select2_from_array
             'name'        => 'module',
             'label'       => "Module",
             'type'        => 'select2_from_array',
@@ -88,14 +89,14 @@ class BackpackModuleCrudController extends CrudController
         ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
-         * - $this->crud->field('price')->type('number');
-         * - $this->crud->addField(['name' => 'price', 'type' => 'number']));
+         * - CRUD::field('price')->type('number');
+         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
          */
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     *
+     * 
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
@@ -109,11 +110,11 @@ class BackpackModuleCrudController extends CrudController
         $t = $this->crud->getRequest()->model;
         $m = $this->crud->getRequest()->module;
         $this->moveFileByModule($t,$m);
-
-        return $this->traitStore();
+        
+        return $this->traitStore(); 
     }
 
-    function getModels($path){
+    function getModels($path){ 
         $out = [];
         $results = scandir($path);
         foreach ($results as $result) {
@@ -127,17 +128,17 @@ class BackpackModuleCrudController extends CrudController
     public function moveFileByModule($file, $MD)
     {
         $DS = DIRECTORY_SEPARATOR;
-
+        
         $path = [
             [
-                app_path().$DS."Models".$DS.$file.'.php',
+                app_path().$DS."Models".$DS.$file.'.php', 
                 Module::getPath().$DS.$MD.$DS."Entities".$DS.$file.'.php',
                 [
                     ['App\Models',"Modules\\".$MD."\Entities"]
                 ]
             ],
             [
-                app_path().$DS."Http".$DS."Controllers".$DS."Admin".$DS.$file.'CrudController.php',
+                app_path().$DS."Http".$DS."Controllers".$DS."Admin".$DS.$file.'CrudController.php', 
                 Module::getPath().$DS.$MD.$DS."Http".$DS."Controllers".$DS.$file.'CrudController.php',
                 [
                     ['App\Http\Controllers\Admin',"Modules\\".$MD."\Http\Controllers"],
@@ -146,7 +147,7 @@ class BackpackModuleCrudController extends CrudController
                 ]
             ],
             [
-                app_path().$DS."Http".$DS."Requests".$DS.$file.'Request.php',
+                app_path().$DS."Http".$DS."Requests".$DS.$file.'Request.php', 
                 Module::getPath().$DS.$MD.$DS."Http".$DS."Requests".$DS.$file.'Request.php',
                 [
                     ['namespace App\Http\Requests;',"namespace Modules\\".$MD."\Http\Requests;"]
@@ -158,25 +159,25 @@ class BackpackModuleCrudController extends CrudController
             try {
                 error_log($v[0]);
                 error_log($v[1]);
-                File::move($v[0], $v[1]);
-
+                File::move($v[0], $v[1]); 
+                
                 foreach ($v[2] as $key => $value) {
-                    $this->replaceFileContent($v[1],$value[0],$value[1]);
+                    $this->replaceFileContent($v[1],$value[0],$value[1]); 
                 }
-            } catch (\Throwable $th) {}
+            } catch (\Throwable $th) {} 
         }
 
         $ov = "Route::crud('".strtolower($file)."', '".$file."CrudController')";
         $nv = "// ".$ov;
         $bp_route_path = base_path().$DS.'routes'.$DS.'backpack'.$DS.'custom.php';
         $this->replaceFileContent($bp_route_path,$ov,$nv);
-
+        
         $ov = "\nRoute::crud('".strtolower($file)."', '".$file."CrudController');";
         $bpm_route_path = Module::getPath().$DS.$MD.$DS.'Routes'.$DS.'web.php';
         $this->appendNewLineFileContent($bpm_route_path,$ov);
 
     }
-
+    
     public function replaceFileContent($file, $old_str, $new_str)
     {
         //read the entire string

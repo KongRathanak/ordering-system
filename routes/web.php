@@ -34,7 +34,9 @@ Route::get('theme/{color}', function ($color) {
     return redirect()->back();
 });
 
-Route::redirect('/', '/admin');
+Route::get('/', function () {
+    return redirect('admin');
+});
 
-Route::get('{page}/{subs?}', ['uses' => '\App\Http\Controllers\PageController@index'])
-    ->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);
+// Route::get('{page}/{subs?}', ['uses' => '\App\Http\Controllers\PageController@index'])
+//     ->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);

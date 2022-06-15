@@ -47,12 +47,12 @@ class DatabaseSeeder extends Seeder
         });
 
         $userData = config('backpack.permissionmanager.models.user')::firstOrCreate([
-            'email' => 'admin@gmail.com',
+            'email' => 'lovsokheang@gmail.com',
         ], [
-            'first_name' => 'System',
-            'last_name' => 'Admin',
+            'first_name' => 'Kheang',
+            'last_name' => 'Lov',
             'phone' => '070218869',
-            'password' => 'not4you',
+            'password' => 'not4youbro',
         ]);
         $userData->assignRole($superAdmin->name);
 
