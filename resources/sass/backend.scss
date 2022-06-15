@@ -1,0 +1,136 @@
+:root {
+    --dark-blue: #657e97;
+    --dark-green: #42ba96;
+    --dark-yellow: #ffc107;
+    --dark-gray: gray;
+}
+
+.breadcrumb-title {
+    letter-spacing: 1.5px;
+}
+
+.custom-show {
+
+    .table {
+
+        tbody {
+
+            tr:first-child {
+
+                td {
+                    border-top: none;
+                }
+            }
+        }
+    }
+}
+
+.avatar_wrapper {
+    cursor: pointer;
+    background-color: rgba(0,0,0,.03);
+    border-radius: 50rem;
+
+    label {
+        cursor: pointer;
+    }
+
+    .backpack-avatar-menu-container {
+        background: #fff;
+    }
+}
+
+.select2-container--bootstrap {
+    box-shadow: 0 0.125rem 0.25rem rgb(22 28 45 / 8%) !important;
+    border-radius: 3px;
+
+    .select2-selection {
+        border: none !important;
+    }
+}
+
+.dataTables_wrapper {
+
+    .dataTables_paginate {
+
+        .paginate_button {
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%) !important;
+
+            &:first-child {
+
+                .page-link {
+                    border-top-left-radius: 0.25rem !important;
+                    border-bottom-left-radius: 0.25rem !important;
+                }
+            }
+
+            &:last-child {
+
+                .page-link {
+                    border-top-right-radius: 0.25rem !important;
+                    border-bottom-right-radius: 0.25rem !important;
+                }
+            }
+
+            &.active {
+                background-color: var(--purple) !important;
+
+                .page-link {
+                    background-color: var(--purple) !important;
+                    z-index: 0 !important;
+                }
+            }
+
+            .page-link {
+                background-color: var(--white) !important;
+                border-radius: 0 !important;
+                border: none !important;
+
+                &:hover, &:focus {
+                    z-index: 0 !important;
+                }
+            }
+
+            &.disabled, &:disabled {
+                opacity: 1 !important;
+            }
+        }
+    }
+
+    .dataTables_length {
+
+        select {
+            border: 0 !important;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%) !important;
+        }
+    }
+
+}
+
+.dataTables_filter {
+
+    input {
+        border: 0 !important;
+        border-radius: 0.25rem !important;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%) !important;
+    }
+}
+
+#crudTable_wrapper {
+
+    #crudTable {
+
+        &.custom-crud-table {
+            margin: 0.5rem 0 !important;
+        }
+    }
+}
+
+.navbar-filters {
+    background-color: rgb(0 0 0 / 2%) !important;
+}
+
+@media (min-width: 576px) {
+    .avatar_wrapper {
+        padding-right: 0.8rem;
+    }
+}

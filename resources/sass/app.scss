@@ -1,0 +1,247 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+$active-color: #f79918;
+
+body, h1, h2, h3, h4, h5, h6, p, span, strong, b, small, button, a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link:hover, .nav-link:focus, .nav-link.active {
+    color: $active-color !important;
+}
+
+// Bootstrap Loading Skeleton
+%loading-skeleton {
+    color: transparent !important;
+    appearance: none;
+    -webkit-appearance: none !important;
+    background-color: #eee !important;
+    border-color: #eee !important;
+
+    &::placeholder {
+      color: transparent;
+    }
+}
+
+@keyframes loading-skeleton {
+    from {
+        opacity: .4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.loading-skeleton {
+    pointer-events: none;
+    animation: loading-skeleton 1s infinite alternate;
+
+    img {
+      filter: grayscale(100) contrast(0%) brightness(1.8);
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    p, li,
+    .btn,
+    .author-pic,
+    label,
+    small,
+    strong,
+    a,
+    span,
+    .form-control {
+      @extend %loading-skeleton;
+    }
+}
+
+.search-input-wrapper {
+
+    .search-input {
+        padding-left: 2.6rem;
+    }
+
+    .search-input-icon {
+        top: 8px;
+        left: 15px;
+        font-size: 20px;
+    }
+}
+
+.menu-sidebar-canvas {
+    width: 300px;
+}
+
+.content-wrapper {
+    min-height: 80vh;
+
+    #feature-posts-slider {
+        margin-bottom: 1.5rem;
+
+        .carousel-indicators {
+            bottom: -15%;
+
+            [data-bs-target] {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background-color: rgba(0,0,0,.2);
+                border: none;
+                opacity: 1;
+            }
+
+            .active {
+                background-color: #f79918;
+            }
+        }
+    }
+
+    .post-content {
+
+        .post-author {
+
+            .author-pic {
+                min-width: 38px;
+                width: 38px;
+                height: 38px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .content, .content-sm {
+            max-height: 70px;
+            overflow: hidden !important;
+        }
+
+        .heading {
+            max-height: 50px;
+            overflow: hidden !important;
+        }
+
+        .heading-sm {
+            max-height: 45px;
+            overflow: hidden !important;
+        }
+    }
+
+    .section-bg-img {
+        width: 100% !important;
+        height: 500px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .img-post-media-sm {
+        max-width: 150px !important;
+        height: 130px !important;
+    }
+
+    .img-post-media-lg {
+        width: 250px !important;
+        height: 220px !important;
+        margin-right: 10px !important;
+    }
+
+    .post-media-sm-img-custom {
+        object-fit: cover;
+    }
+
+    .img-card-popular-post {
+        height: 150px;
+    }
+
+    .post-media-img-custom {
+        height: 410px !important;
+        object-fit: cover !important;
+    }
+
+    .img-card-post-lg {
+        height: 250px;
+    }
+
+    .post-card-img-custom {
+        object-fit: cover !important;
+    }
+}
+
+.next, .prev {
+
+    .post-content {
+        max-height: 65px;
+        overflow: hidden;
+    }
+}
+
+footer {
+
+    .bro-bug-logo {
+
+        img {
+            width: 75px !important;
+        }
+    }
+}
+
+#back_to_top {
+    position: fixed;
+    width: 45px;
+    right: 15px !important;
+    bottom: 15px;
+    background-color: $white;
+    border-color: $active-color;
+    color: $active-color;
+
+    &:hover, &:focus {
+        background-color: $active-color;
+        color: $white;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .post-content {
+
+        .content-sm {
+            max-height: 45px;
+        }
+
+        .heading-sm {
+            height: 23px;
+            overflow: hidden !important;
+        }
+
+        .post-author {
+
+            .user-info-sm {
+
+                strong, span {
+                    display: block;
+                    height: 23px;
+                    overflow: hidden !important;
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+
+        .img-post-media-lg {
+            width: 200px !important;
+            height: 190px !important;
+        }
+
+    }
+
+    .menu-sidebar-canvas {
+        width: 225px;
+    }
+}
