@@ -25,20 +25,20 @@ Route::group([
     });
 });
 
-// Route::group([
-//     'prefix'     => config('backpack.base.route_prefix', 'admin'),
-//     'middleware' => config('backpack.base.web_middleware', 'web'),
-// ], function () {
-//     Route::group([
-//         'namespace'  => 'App\Http\Controllers\Auth',
-//     ], function () {
-//         // Authentication Routes...
-//         Route::get('login', 'LoginController@showLoginForm')->name('backpack.auth.login');
-//         Route::post('login', 'LoginController@login');
-//         Route::get('logout', 'LoginController@logout')->name('backpack.auth.logout');
-//         Route::post('logout', 'LoginController@logout');
-//     });
-// });
+Route::group([
+    'prefix'     => config('backpack.base.route_prefix', 'admin'),
+    'middleware' => config('backpack.base.web_middleware', 'web'),
+], function () {
+    Route::group([
+        'namespace'  => 'App\Http\Controllers\Auth',
+    ], function () {
+        // Authentication Routes...
+        Route::get('login', 'LoginController@showLoginForm')->name('backpack.auth.login');
+        Route::post('login', 'LoginController@login');
+        Route::get('logout', 'LoginController@logout')->name('backpack.auth.logout');
+        Route::post('logout', 'LoginController@logout');
+    });
+});
 //     Route::group([
 //         'middleware' => config('backpack.base.middleware_key', 'admin')
 //     ], function() {
