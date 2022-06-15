@@ -1,0 +1,13 @@
+{
+    "name": "BackpackModule",
+    "alias": "backpackmodule",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\BackpackModule\\Providers\\BackpackModuleServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
