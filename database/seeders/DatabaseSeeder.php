@@ -47,10 +47,10 @@ class DatabaseSeeder extends Seeder
         });
 
         $userData = config('backpack.permissionmanager.models.user')::firstOrCreate([
-            'email' => 'lovsokheang@gmail.com',
+            'email' => 'admin@admin.com',
         ], [
-            'first_name' => 'Kheang',
-            'last_name' => 'Lov',
+            'first_name' => 'System',
+            'last_name' => 'Admin',
             'phone' => '070218869',
             'password' => 'not4youbro',
         ]);

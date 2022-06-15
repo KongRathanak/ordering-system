@@ -38,7 +38,7 @@ Route::group([
 //         Route::get('logout', 'LoginController@logout')->name('backpack.auth.logout');
 //         Route::post('logout', 'LoginController@logout');
 //     });
-
+// });
 //     Route::group([
 //         'middleware' => config('backpack.base.middleware_key', 'admin')
 //     ], function() {
