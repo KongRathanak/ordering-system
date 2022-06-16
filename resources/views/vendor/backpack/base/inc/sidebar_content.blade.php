@@ -7,14 +7,14 @@
     ],
     'permission' => ''
 ])
-@include('partials.sidebar_link', [
+{{-- @include('partials.sidebar_link', [
     'entry' => [
         backpack_url('page'),
         'Pages',
         'la la-file-o'
     ],
     'permission' => 'pages'
-])
+]) --}}
 @include('partials.sidebar_dropdown', [
     'entry' => [
         'la la-newspaper-o',
@@ -113,6 +113,14 @@
                 trans('backpack::crud.file_manager'),
                 'la la-files-o'
             ],
+        ],
+        [
+            'entry' => [
+                    backpack_url('api_explorer'),
+                    trans('system.api_explorer'),
+                    'nav-icon lab la-searchengin'
+                ],
         ]
     ]
 ])
+

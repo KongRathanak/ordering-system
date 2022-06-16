@@ -20,6 +20,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "netojose/laravel-api-explorer": "^2.0",
         "nwidart/laravel-modules": "^9.0",
         "silviolleite/laravelpwa": "^2.0",
         "victorybiz/geoip-location": "^1.1"
