@@ -9,7 +9,6 @@
             $isRoleOrPermissionOrNone = $user->{$roles}();
         }
     } elseif (isset($permissions) && $permissions) {
-        @dd($permissions);
         collect($permissions)->each(function ($permission) use ($user, &$isRoleOrPermissionOrNone) {
             $isRoleOrPermissionOrNone = $user->hasPermissionTo("list {$permission}");
         });
