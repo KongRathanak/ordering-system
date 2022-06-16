@@ -120,7 +120,23 @@
                     trans('system.api_explorer'),
                     'nav-icon lab la-searchengin'
                 ],
+        ],
+        [
+            'entry' => [
+                            backpack_url('job'),
+                            trans('system.jobs'),
+                            'nav-icon las la-sync'
+                ],
+        ],
+        [
+            'entry' => [
+                    backpack_url('failed_job'),
+                    trans('system.failed_jobs'),
+                    'nav-icon las la-undo-alt'
+                ],
         ]
     ]
 ])
+
+
 
