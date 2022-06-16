@@ -29,6 +29,7 @@ class FailedJobCrudController extends CrudController
         CRUD::setModel(\App\Models\FailedJob::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/failed_job');
         CRUD::setEntityNameStrings('failed job', 'failed jobs');
+        $this->crud->denyAccess(['create','show','update','delete']);
     }
 
     /**

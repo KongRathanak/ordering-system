@@ -19,28 +19,29 @@ class DatabaseSeeder extends Seeder
         $admin = $roleModel::firstOrCreate(['id' => 2], ['name' => 'Admin']);
         $editor = $roleModel::firstOrCreate(['id' => 3], ['name' => 'Editor']);
         $user = $roleModel::firstOrCreate(['id' => 4], ['name' => 'User']);
-
+        $developer = $roleModel::firstOrCreate(['id' => 5], ['name' => 'Develop']);
         collect([
             'users',
-            'articles',
-            'tags',
-            'categories',
-            'pages'
-        ])->each(function($v) use ($superAdmin, $admin, $editor, $user) {
+            'develop',
+            'staff',
+            'shop',
+            'warehouse',
+        ])->each(function($v) use ($superAdmin, $admin, $editor, $user,$developer) {
             collect([
                 'list',
                 'create',
                 'update',
                 'show',
                 'delete',
-            ])->each(function($vv) use ($v, $superAdmin, $admin, $editor, $user) {
+            ])->each(function($vv) use ($v, $superAdmin, $admin, $editor, $user, $developer) {
                 $permission = config('backpack.permissionmanager.models.permission')::firstOrCreate(['name' => "{$vv} {$v}"]);
                 $superAdmin->givePermissionTo($permission->name);
                 $admin->givePermissionTo($permission->name);
-                if (!in_array($v, ['users', 'pages']) && $vv != 'delete') {
+                $developer->givePermissionTo($permission->name);
+                if (!in_array($v, ['users', 'staff']) && $vv != 'delete') {
                     $editor->givePermissionTo($permission->name);
                 }
-                if (!in_array($v, ['users', 'pages']) && !in_array($vv, ['delete', 'update', 'create'])) {
+                if (!in_array($v, ['users', 'staff']) && !in_array($vv, ['delete', 'update', 'create'])) {
                     $user->givePermissionTo($permission->name);
                 }
             });
