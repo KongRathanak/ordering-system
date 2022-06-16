@@ -196,7 +196,7 @@ class UserCrudController extends CrudController
             [
                 'name'  => 'phone',
                 'label' => 'Phone',
-                'type'  => 'text',
+                'type' => 'phone',
                 'wrapper' => [
                     'class' => 'form-group col-sm-6',
                 ]
