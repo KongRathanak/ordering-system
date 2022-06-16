@@ -60,9 +60,9 @@ class TypeCrudController extends CrudController {
 
     public function setup()
     {
-        if (!backpack_user()->isDeveloper()) {
-            $this->crud->denyAccess(['create','list','show','update','delete']);
-        }
+        // if (!backpack_user()->isDeveloper()) {
+        //     $this->crud->denyAccess(['create','list','show','update','delete']);
+        // }
         $this->isParentId = request()->parent_id ?? '';
         $this->crud->setModel(Type::class);
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/type');

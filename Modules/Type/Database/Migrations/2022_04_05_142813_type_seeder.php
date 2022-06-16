@@ -13,6 +13,6 @@ return new class extends Migration {
     public function up() {
 
         // if (env('APP_ENV') === 'production') {
-            Artisan::call('db:seed --class=BicTypeSeeder --force');
+            // Artisan::call('db:seed --class=BicTypeSeeder --force');
     }
 };

@@ -8,6 +8,7 @@ trait RolePermissionTrait {
     public $admin = 2;
     public $editor = 3;
     public $user = 4;
+    public $developer = 5;
 
     public function isSuperAdminRole() {
         return $this->hasAnyRole($this->superAdmin);
@@ -30,6 +31,10 @@ trait RolePermissionTrait {
         if (!$this->isSuperAdminRole()) {
             abort(403);
         }
+    }
+    public function isDeveloper()
+    {
+        return $this->hasAnyRole($this->developer);
     }
 
 }

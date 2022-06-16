@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
         collect([
             'users',
             'develop',
+            'articles',
+            'tags',
+            'categories',
+            'pages',
             'staff',
             'shop',
             'warehouse',
@@ -42,6 +46,12 @@ class DatabaseSeeder extends Seeder
                     $editor->givePermissionTo($permission->name);
                 }
                 if (!in_array($v, ['users', 'staff']) && !in_array($vv, ['delete', 'update', 'create'])) {
+                    $user->givePermissionTo($permission->name);
+                }
+                if (!in_array($v, ['users', 'pages']) && $vv != 'delete') {
+                    $editor->givePermissionTo($permission->name);
+                }
+                if (!in_array($v, ['users', 'pages']) && !in_array($vv, ['delete', 'update', 'create'])) {
                     $user->givePermissionTo($permission->name);
                 }
             });

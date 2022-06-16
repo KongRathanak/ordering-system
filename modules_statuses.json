@@ -2,5 +2,5 @@
     "Blog": true,
     "BackpackModule": true,
     "Account": false,
-    "Type": false
+    "Type": true
 }
