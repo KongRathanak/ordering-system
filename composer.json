@@ -24,6 +24,7 @@
         "maatwebsite/excel": "^3.1",
         "netojose/laravel-api-explorer": "^2.0",
         "nwidart/laravel-modules": "^9.0",
+        "owen-it/laravel-auditing": "^13.0",
         "psr/simple-cache": "^1.0",
         "silviolleite/laravelpwa": "^2.0",
         "victorybiz/geoip-location": "^1.1"

@@ -6,4 +6,5 @@ return [
     'failed_jobs' => 'Failed Job',
     'active' => 'Active',
     'inactive' => 'In-Active',
+    'type' => 'Types',
 ];

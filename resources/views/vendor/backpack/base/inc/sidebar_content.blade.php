@@ -95,6 +95,13 @@
         ],
         [
             'entry' => [
+                    backpack_url('type'),
+                    trans('system.type'),
+                    'nav-icon la la-database'
+                ],
+        ],
+        [
+            'entry' => [
                 backpack_url('log'),
                 'Logs',
                 'nav-icon las la-terminal'
