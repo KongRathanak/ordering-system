@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "intl-tel-input": "^17.0.16",
         "jquery": "^3.6.0"
     }
 }
