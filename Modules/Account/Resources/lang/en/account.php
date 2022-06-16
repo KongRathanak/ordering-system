@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'any' => 'Any',
+    'account' => 'Account',
+    'account_owner' => 'Account Owner',
+    'address' => 'Address',
+    'contact_type' => 'Contact Type',
+    'contact' => 'Contact',
+    'contact_information' => 'Contact Information',
+    'created_by' => 'Created By',
+    'email' => 'Email',
+    'full_name' => 'Full Name',
+    'first_name' => 'First Name',
+    'industry' => 'Industry',
+    'id' => 'ID',
+    'last_name' => 'Last Name',
+    'mobile_phone' => 'Mobile Phone',
+    'merchant_name' => 'Merchant Name',
+    'name' => 'Name',
+    'other' => 'Other',
+    'position' => 'Position',
+    'parent_name' => 'Parent Name',
+    'phone' => 'Phone',
+    'status' => 'Status',
+    'time_zone' => "Time Zone",
+    'user' => 'User',
+    'updated_by' => 'Updated By',
+    'check_user' => 'Check User',
+    'convert_to_user ' => 'Convert to User',
+    'the_roles_field_is_required' => 'The roles field is required'
+];

@@ -1,4 +1,5 @@
 {
     "Blog": true,
-    "BackpackModule": true
+    "BackpackModule": true,
+    "Account": false
 }
