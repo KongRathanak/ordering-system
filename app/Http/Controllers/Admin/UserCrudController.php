@@ -24,6 +24,8 @@ class UserCrudController extends CrudController
         $this->crud->setEntityNameStrings(trans('backpack::permissionmanager.user'), trans('backpack::permissionmanager.users'));
         $this->crud->setRoute(backpack_url('user'));
         $this->setPermission();
+
+
     }
 
     public function setupListOperation()
@@ -108,6 +110,7 @@ class UserCrudController extends CrudController
 
     public function setupCreateOperation()
     {
+        $this->crud->setCreateContentClass('col-md-12');
         $this->addUserFields();
         $this->crud->setValidation(StoreRequest::class);
     }
@@ -168,6 +171,24 @@ class UserCrudController extends CrudController
 
     protected function addUserFields()
     {
+        $colMd6 = ['class' => 'form-group col-md-6'];
+        if(request()->phone){
+            $phone=[
+                'name'  => 'phone',
+                'label' => trans('system.phone'),
+                'type' => 'phone',
+                'value' => '+'.request()->phone,
+                'wrapper' => $colMd6
+            ];
+        }else{
+            $phone = [
+                'name'  => 'phone',
+                'label' => trans('system.phone'),
+                'type' => 'phone',
+                'wrapper' => $colMd6
+            ];
+        }
+
         $this->crud->addFields([
             [
                 'name'  => 'first_name',
@@ -193,14 +214,7 @@ class UserCrudController extends CrudController
                     'class' => 'form-group col-sm-6',
                 ]
             ],
-            [
-                'name'  => 'phone',
-                'label' => 'Phone',
-                'type' => 'phone',
-                'wrapper' => [
-                    'class' => 'form-group col-sm-6',
-                ]
-            ],
+            $phone,
             [
                 'name'  => 'password',
                 'label' => trans('backpack::permissionmanager.password'),
