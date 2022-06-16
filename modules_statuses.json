@@ -1,5 +1,6 @@
 {
     "Blog": true,
     "BackpackModule": true,
-    "Account": false
+    "Account": false,
+    "Type": false
 }
