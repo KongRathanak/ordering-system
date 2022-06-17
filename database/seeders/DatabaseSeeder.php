@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
         ], [
             'first_name' => 'System',
             'last_name' => 'Admin',
-            'phone' => '070218869',
+            'phone' => '+85570218869',
             'password' => 'not4youbro',
         ]);
         $userData->assignRole($superAdmin->name);

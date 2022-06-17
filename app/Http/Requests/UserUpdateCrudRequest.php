@@ -31,7 +31,7 @@ class UserUpdateCrudRequest extends FormRequest
             'first_name' => 'required|max:25',
             'last_name' => 'required|max:25',
             'password' => 'confirmed',
-            'phone'     => 'required|phone_number|min:9|max:15|unique:users,phone'.$id,
+            'phone'     => 'required|phone_number|min:9|max:15|unique:users,phone,'.$id,
         ];
     }
 }
