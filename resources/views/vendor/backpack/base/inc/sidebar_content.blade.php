@@ -17,39 +17,6 @@
 ]) --}}
 @include('partials.sidebar_dropdown', [
     'entry' => [
-        'la la-newspaper-o',
-        'News',
-    ],
-    'permissions' => ['articles', 'tags', 'categories'],
-    'drop_items' => [
-        [
-            'entry' => [
-                backpack_url('article'),
-                'Articles',
-                'la la-newspaper-o'
-            ],
-            'permission' => 'articles'
-        ],
-        [
-            'entry' => [
-                backpack_url('category'),
-                'Categories',
-                'la la-list'
-            ],
-            'permission' => 'categories'
-        ],
-        [
-            'entry' => [
-                backpack_url('tag'),
-                'Tags',
-                'la la-tag'
-            ],
-            'permission' => 'tags'
-        ]
-    ]
-])
-@include('partials.sidebar_dropdown', [
-    'entry' => [
         'la la-users',
         'Authentication',
     ],
@@ -147,3 +114,6 @@
 
 
 
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('products') }}'><i class='nav-icon la la-question'></i> Products</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('orders') }}'><i class='nav-icon la la-question'></i> Orders</a></li>

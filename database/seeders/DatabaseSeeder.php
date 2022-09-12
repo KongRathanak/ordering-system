@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -57,13 +58,11 @@ class DatabaseSeeder extends Seeder
             });
         });
 
-        $userData = config('backpack.permissionmanager.models.user')::firstOrCreate([
+        $userData = User::firstOrCreate([
 
             'email' => 'admin@admin.com',
         ], [
-            'first_name' => 'System',
-            'last_name' => 'Admin',
-            'phone' => '+85570218869',
+            'name' => 'admin',
             'password' => 'not4youbro',
         ]);
         $userData->assignRole($superAdmin->name);

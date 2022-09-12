@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropStatusFieldFromArticlesTable extends Migration
+class Products extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class DropStatusFieldFromArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('status');
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->string('image');
+            $table->float('price');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class DropStatusFieldFromArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }
